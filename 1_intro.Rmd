@@ -4,10 +4,10 @@ author: toni.giorgino@cnr.it - CNR Institute of Biophysics & Dept. of Bioscience
   UniMi
 date: "`r date()`"
 output:
-  pdf_document:
-    toc: yes
   html_document:
     number_sections: yes
+    toc: yes
+  pdf_document:
     toc: yes
 ---
 
