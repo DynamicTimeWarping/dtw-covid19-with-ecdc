@@ -4,10 +4,10 @@ author: toni.giorgino@cnr.it - CNR Institute of Biophysics & Dept. of Bioscience
   UniMi
 date: "`r date()`"
 output:
+  pdf_document:
+    toc: yes
   html_document:
     number_sections: yes
-    toc: yes
-  pdf_document:
     toc: yes
 ---
 
@@ -73,10 +73,27 @@ tmp.at <- df.preprocess(data[["Austria"]])
 tmp.fr <- df.preprocess(data[["France"]])
 
 dtw.at.fr <- dtw(tmp.at, tmp.fr)  # The most basic format, all default parameters.
+
+```
+
+The alignment (warping function, or path) can be visualized as follows. 
+Below or above diagonal means that the outbreak in one country occurs
+before or after the other.
+
+```{r}
 plot(dtw.at.fr)
 
-dtw.at.fr$normalizedDistance # This is the distance (dissimilarity) to be used in clustering
+abline(a=0, b=1, lty=3)
 ```
+
+This is the distance (dissimilarity) to be used in clustering
+
+```{r}
+dtw.at.fr$normalizedDistance 
+```
+
+
+
 
 # All-vs-all alignment
 
@@ -99,6 +116,7 @@ for (c1 in countries) {
         }
 }
 
+dmat
 ```
 
 
